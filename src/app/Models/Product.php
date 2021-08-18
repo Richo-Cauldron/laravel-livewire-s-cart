@@ -5,11 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Product
+ *
+ * @package App\Models
+ *
+ * @property int $id
+ * @property string $name
+ * @property int $price
+ * @property string $excerpt
+ * @property \Illuminate\Support\Carbon $created_at
+ * @property \Illuminate\Support\Carbon $updated_at
+ *
+ * @property string $formatted_price
+ */
+
 class Product extends Model
 {
     use HasFactory;
 /**
- * call helper function to format price
+ * call helper function to format price as decimal
  *
  * @return string
  */
