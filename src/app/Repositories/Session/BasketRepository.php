@@ -1,0 +1,52 @@
+<?php 
+
+namespace App\Repositories\Session;
+
+use Illuminate\Contracts\Session\Session;
+use App\Repositories\Contracts\BasketRepositoryContract;
+
+class BasketRepository implements BasketRepositoryContract
+{
+    /**
+     * @var Illuminate\Contracts\Session\Session
+     */
+    private Session $session;
+
+    /**
+     * BasketRepository constructor
+     *
+     * @param Illuminate\Contracts\Session\Session
+     */
+    public function __construct(Session $session)
+    {
+        $this-> session = $session;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function add(int $id, int $qty): void
+    {
+        $this->session->put($this->identity($id), $qty);
+    }
+
+    /**
+     * create product identity
+     * helper function for add()
+     *
+     * @param integer $id
+     * @return string
+     */
+    private function identity(int $id): string
+    {
+        return "basket." . $id;
+    }
+
+    /**
+    * @inheritDoc
+    */
+    public function getCurrentQty(int $id): int
+    {
+        return $this->session->get($this->identity($id), 0);
+    }
+}
