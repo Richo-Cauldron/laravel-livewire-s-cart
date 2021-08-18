@@ -25,6 +25,14 @@ class BasketRepository implements BasketRepositoryContract
     /**
      * @inheritDoc
      */
+    public function all(): array
+    {
+        return $this->session->get('basket', []);
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function add(int $id, int $qty): void
     {
         $this->session->put($this->identity($id), $qty);
