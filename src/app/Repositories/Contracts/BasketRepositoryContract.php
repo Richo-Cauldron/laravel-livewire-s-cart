@@ -27,4 +27,11 @@ interface BasketRepositoryContract
      * @return integer
      */
     public function getCurrentQty(int $id): int;
+
+    /**
+     * Remove product from basket
+     * 
+     * @var int
+     */
+    public function remove(int $id): void;
 }

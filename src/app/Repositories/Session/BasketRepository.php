@@ -57,4 +57,12 @@ class BasketRepository implements BasketRepositoryContract
     {
         return $this->session->get($this->identity($id), 0);
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function remove(int $id): void
+    {
+        $this->session->remove($this->identity($id));
+    }
 }

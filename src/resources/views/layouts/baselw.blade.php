@@ -13,7 +13,7 @@
         <div class="px-3 py-2 bg-indigo-600">
             <div class="relative flex items-center max-w-3xl px-4 mx-auto">
                 <div class="flex-auto">
-                    <a href="/" class="text-lg text-white">Livewire shopping basket</a>
+                    <a href="/product" class="text-lg text-white">Livewire shopping basket</a>
                 </div>
                 <div class="flex-shrink">
                     <livewire:basket-button>
